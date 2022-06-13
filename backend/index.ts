@@ -1,5 +1,5 @@
 
-import express from "express"
+import express, {Request as Req, Response as Res} from "express"
 
 console.log('hello ts');
 // learning link
@@ -8,9 +8,9 @@ console.log('hello ts');
 const app = express();
 
 
-app.route("*").all((req : any, res : any) => {
+app.route("*").all((req: Req, res: Res): Res => {
     return res.status(200).send('server ok');
 });
 
 const port =  3005;
-app.listen(port, () => console.log(`Listening on port ${port}, Express`));
+app.listen(port, (): void => console.log(`Listening on port ${port}, Express`));
